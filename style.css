@@ -1,0 +1,69 @@
+/* Minimal CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(63, 63, 63);
+}
+
+#container {
+  width: 50vh;
+  height: 60vh;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-content: space-between;
+  border-radius: 3%;
+
+}
+
+#display {
+    width: 90%;
+    height: 20%;
+    background-color: rgb(1, 212, 142);
+}
+
+#buttuns {
+    width: 90%;
+    height: 65%;
+    background-color: aqua;
+}
+
+#upButtuns {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: row;
+}
+
+#clear {
+    background-color: lightblue; /* Example styling */
+    padding: 5px 10px;
+    border: 1px solid blue;
+    margin-right: 10px; /* Add some spacing between the divs */
+    width: 40%;
+  }
+  
+  #delete {
+    background-color: lightcoral; /* Example styling */
+    padding: 5px 10px;
+    border: 1px solid red;
+    width: 40%;
+  }
+
+#restButtuns {
+    width: 100%;
+    height: 80%;
+}
