@@ -3,7 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  display: inline-block;
+}
+
+@font-face {
+  font-family: 'calculator-font'; /* שם שתרצה לתת לגופן */
+  src: url('/font/digital-7/digital-7.ttf') format('truetype'); /* נתיב לקובץ ה-TTF */
+  font-weight: normal; /* עובי הגופן (normal, bold, וכו') */
+  font-style: normal; /* סגנון הגופן (normal, italic, וכו') */
 }
 
 body {
@@ -12,11 +18,14 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: rgb(63, 63, 63);
+  background-color: rgb(251, 251, 251);
+}
+
+div {
 }
 
 #container {
-  width: 50vh;
+  width: 45vh;
   height: 60vh;
   background-color: rgb(44, 44, 44);
   display: flex;
@@ -24,46 +33,69 @@ body {
   align-items: center;
   flex-direction: column;
   align-content: space-between;
-  border-radius: 3%;
-
+  border-radius: 1.5%;
 }
 
 #display {
-    width: 90%;
-    height: 20%;
-    background-color: rgb(1, 212, 142);
+  width: 90%;
+  height: 20%;
+  background-color: rgb(1, 212, 142);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-size: 10vh;
+  font-family: 'calculator-font';
 }
 
 #buttuns {
-    width: 90%;
-    height: 65%;
-    background-color: aqua;
+  width: 90%;
+  height: 65%;
+  background-color: rgb(44, 44, 44);
 }
 
 #upButtuns {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    /* justify-content: center; */
-    flex-direction: row;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* flex-direction: row; */
 }
 
+#upButtuns * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  font-size: 3vh;
+}
+
+#delete,
 #clear {
-    background-color: lightblue; /* Example styling */
-    padding: 5px 10px;
-    border: 1px solid blue;
-    margin-right: 10px; /* Add some spacing between the divs */
-    width: 40%;
-  }
-  
-  #delete {
-    background-color: lightcoral; /* Example styling */
-    padding: 5px 10px;
-    border: 1px solid red;
-    width: 40%;
-  }
+  background-color: rgb(44, 44, 44); /* Example styling */
+  padding: 5px 10px;
+  border: 0.0007vh solid rgb(77, 77, 77);
+  width: 50%;
+  height: 100%;
+  /* border-radius: 1.5vh; */
+}
 
 #restButtuns {
-    width: 100%;
-    height: 80%;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#restButtuns * {
+  width: 25%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0007vh solid rgb(77, 77, 77);
+  color: aliceblue;
+  font-size: 5vh;
 }
