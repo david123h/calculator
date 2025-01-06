@@ -84,25 +84,38 @@ function handleButtonClick(event) {
       } else {
         newValue = "";
       }
+    }
     // currentValue === "" ? (newValue = "-") : (newValue = "");
+    if (newValue != "") {
+      currentValue += newValue;
+      currentDisplay.innerText = currentValue;
+      
   }
-  if (newValue != "") {
-    currentValue += newValue;
-    currentDisplay.innerText = currentValue;
-  }
-}
-
-//notice what operation has been pressed
-function handleOperationClick(event) {
   if (
     currentValue != "" &&
     currentValue != "-" &&
     currentValue[currentValue.length - 1] != "."
   ) {
 
-    valueA === undefined
+    operation === undefined
       ? (valueA = Number(currentValue))
       : (valueB = Number(currentValue));
+}
+  
+}
+  
+
+//notice what operation has been pressed
+function handleOperationClick(event) {
+  // if (
+  //   currentValue != "" &&
+  //   currentValue != "-" &&
+  //   currentValue[currentValue.length - 1] != "."
+  // ) {
+
+  //   valueA === undefined
+  //     ? (valueA = Number(currentValue))
+  //     : (valueB = Number(currentValue));
     let buttonId = event.target.id;
     switch (buttonId) {
       case "divide":
@@ -123,7 +136,7 @@ function handleOperationClick(event) {
     currentValue = " ";
     console.log(operation);
   }
-}
+
 
 //notice when the equal buttun has been pressed
 const equalButtun = document.getElementById("aqual");
