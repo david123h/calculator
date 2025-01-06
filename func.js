@@ -38,10 +38,13 @@ operationButtuns.forEach((buttun) => {
 //notice what number has been pressed
 function handleButtonClick(event) {
   const buttonId = event.target.id;
-  
+
   switch (buttonId) {
     case "zero":
-      newValue = 0;
+      // if (currentValue.length > 0 && currentValue != " ") {
+      //   newValue = "0";
+      // } else {newValue = "";}
+       currentValue != "" && currentValue != " " ? newValue = "0": newValue = "" ;
       break;
     case "one":
       newValue = 1;
@@ -72,19 +75,21 @@ function handleButtonClick(event) {
       break;
     case "dot":
       if (currentValue.includes(".")) newValue = "";
-      else if (currentValue === "") newValue = "0.";
+      else if (currentValue === "" || currentValue === " ") newValue = "0.";
       else newValue = ".";
       break;
     case "subtract":
-      if (currentValue === "" && operation){
-        newValue = "-"
+      if (currentValue === "" && operation) {
+        newValue = "-";
       } else {
-        newValue = ""
+        newValue = "";
       }
-      // currentValue === "" ? (newValue = "-") : (newValue = "");
+    // currentValue === "" ? (newValue = "-") : (newValue = "");
   }
-  currentValue += newValue;
-  currentDisplay.innerText = currentValue;
+  if (newValue != "") {
+    currentValue += newValue;
+    currentDisplay.innerText = currentValue;
+  }
 }
 
 //notice what operation has been pressed
@@ -94,6 +99,7 @@ function handleOperationClick(event) {
     currentValue != "-" &&
     currentValue[currentValue.length - 1] != "."
   ) {
+
     valueA === undefined
       ? (valueA = Number(currentValue))
       : (valueB = Number(currentValue));
@@ -124,12 +130,40 @@ const equalButtun = document.getElementById("aqual");
 equalButtun.addEventListener("click", handleEqualClick);
 
 function handleEqualClick() {
-  if (valueA && valueB) {
+  if (valueA && valueB && operation) {
     valueA = preformCalculation(valueA, valueB, operation);
     currentDisplay.textContent = valueA;
+    currentValue = " ";
     // valueB = undefined;
-    // operation = undefined;
+    operation = undefined;}
     // currentValue = ""
-  }
+  // } else if (operation == undefined){
+  //   valueA = valueB;
+  //   valueB = undefined;
+  // }
 }
 
+let resetBUttun = document.getElementById("clear");
+resetBUttun.addEventListener("click", resetAll);
+
+function resetAll() {
+  currentValue = "";
+  valueA = undefined;
+  valueB = undefined;
+  newValue = undefined;
+  operation = undefined;
+  currentDisplay.innerText = "0";
+}
+
+let deleteButtun = document.getElementById("delete");
+deleteButtun.addEventListener("click", deleteChar);
+
+function deleteChar() {
+  if (currentValue != " " && currentValue.length > 0) {
+    let tempValue = currentValue.split("");
+    tempValue.splice(tempValue.length - 1, 1);
+    let endValue = tempValue.join("");
+    currentValue = endValue;
+    currentDisplay.textContent = endValue;
+  }
+}
