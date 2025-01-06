@@ -1,7 +1,8 @@
-//initialvalues
+//initial values
 let currentValue = "";
 let valueA;
 let valueB;
+let newValue;
 let operation;
 
 //getting the calculator screen through DOM
@@ -37,7 +38,7 @@ operationButtuns.forEach((buttun) => {
 //notice what number has been pressed
 function handleButtonClick(event) {
   const buttonId = event.target.id;
-  let newValue;
+  
   switch (buttonId) {
     case "zero":
       newValue = 0;
@@ -75,7 +76,12 @@ function handleButtonClick(event) {
       else newValue = ".";
       break;
     case "subtract":
-      currentValue === "" ? (newValue = "-") : (newValue = "");
+      if (currentValue === "" && operation){
+        newValue = "-"
+      } else {
+        newValue = ""
+      }
+      // currentValue === "" ? (newValue = "-") : (newValue = "");
   }
   currentValue += newValue;
   currentDisplay.innerText = currentValue;
@@ -108,7 +114,7 @@ function handleOperationClick(event) {
       case "aqual":
         break;
     }
-    currentValue = "";
+    currentValue = " ";
     console.log(operation);
   }
 }
@@ -121,8 +127,9 @@ function handleEqualClick() {
   if (valueA && valueB) {
     valueA = preformCalculation(valueA, valueB, operation);
     currentDisplay.textContent = valueA;
-    valueB = undefined;
-    operation = undefined;
-    currentValue = ""
+    // valueB = undefined;
+    // operation = undefined;
+    // currentValue = ""
   }
 }
+
