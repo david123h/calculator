@@ -46,6 +46,7 @@ div {
   align-items: center;
   font-size: 10vh;
   font-family: 'calculator-font';
+  overflow: hidden;
 }
 
 #buttuns {
